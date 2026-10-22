@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name='viewport' content='width=device-width,initial-scale=1'>
+		<meta charset='UTF-8'><link rel='stylesheet' type='text/css' href='reports/global/style.css'>
+		<title>SerenityOS Test Coverage</title>
+		<link rel="shortcut icon" type="image/png" href="favicon.png" />
+		<style>
+		    .search-box {
+		      width: 500px;
+		      padding: 5px;
+		      margin-left: 25px;
+		      font-size: 14px;
+		      box-sizing: border-box;
+		    }
+		</style>
+	</head>
+	<body>
+		<h2>SerenityOS Coverage Reports</h2>
+		
+		<h5>Generated from commit <a id="serenity_link">hash</a>.</h5>
+		
+		<p>This website contains coverage reports for the SerenityOS repository. The reports are generated nightly, by running our test suite with Clang's code coverage feature.</p>
+
+		<p>Results are aggregated with two different methods:</p>
+		<ul>
+			<li><a href="reports/global/index.html">A global report</a></li>
+			<li>Per-component reports</li>
+		</ul>
+
+		<h4>Access per-component reports</h4>
+
+		<input type="text" id="filter_input" class="search-box" placeholder="Filter reports (regex friendly)..."/>
+		<ul id="components_list">
+		</ul>
+
+		<h4>Methodology</h4>
+		<p>The global report is created by aggregating the result of every test in a single report.</p>
+		<p>On the other hand, per-component reports only include the result from the test of the component.
+		This has the advantage of only showing direct testing rather than including transitive testing.
+		For example, a <code>AK::Vector</code> feature used in <code>LibIMAP</code> might be marked as covered in the global report because it's reached from <code>LibIMAP</code>'s own tests without being covered by <code>AK</code> tests.
+		</p>
+	</body>
+	<script src="main.js"></script>
+</html>
